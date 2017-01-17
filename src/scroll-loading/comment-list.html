@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no, email=no, adress=no">
+  <link href="css/common.css" rel="stylesheet" type="text/css">
+  <title>评论列表</title>
+  <style type="text/css">
+    body {
+      background-color: #fff;
+    }
+    #Designer-Comments {
+      margin: 0;
+      padding: 0;
+    }
+    #Designer-Comments li {
+      border-top: 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .list {
+      overflow-y: scroll;
+    }
+    .tip {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background: #f5f5f5;
+    }
+    .list::-webkit-scrollbar {
+      width: 6px;
+      background-color: #F5F5F5;
+    }
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+    }
+
+    /* 滚动条滑块 */
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgba(0,0,0,0.1);
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+    ::-webkit-scrollbar-thumb:window-inactive {
+      background: rgba(256,256,256,0.4);
+    }
+  </style>
+</head>
+<body>
+  <section id="Designer-Comments">
+    <div class="list" id="commentList">
+      <ul></ul>
+      <div class="tip">加载更多</div>
+    </div>
+  </section>
+
+  <script src="js/scroll-loading.js"></script>
+  <!--<script src="js/common.min.js"></script>-->
+  <script>
+    // 滚动加载组件方案，联调成功时使用如下代码：
+    new ScrollLoading({
+      selector: '#commentList',
+      size: 5,
+      isAjax: false,
+      page: 0,
+      count: 30,
+      url: 'xxx',
+      type: 'get'
+    })
+
+
+    // 临时方案：一次性加载，渲染
+    // function template(data) {
+    //   var html = '',
+    //     i = 0,
+    //     len = this.size;
+
+    //   for (; i < len; i++) {
+    //     html += '<li>'
+    //         + '<img src="image/head.png">'
+    //         + '<div>'
+    //         + '  <div class="name">大侠</div>'
+    //         + '  <p>在设计师详情页面，增加"对设计师评价"模块，点击"更多评价"</p>'
+    //         + '</div>'
+    //         + '</li>'
+    //   }
+
+    //   return html;
+    // }
+
+    // function append(content) {
+    //   document.querySelector('ul').insertAdjacentHTML('beforeend', content)
+    // }
+
+    // // 获取评论列表数据
+    // $.ajax({
+    //   url: '',
+    //   type: 'get',
+    //   dataType: 'json'
+    // }).done(function(data) {
+    //   var tpl = template(data)
+    //   append(tpl)
+    // })
+  </script>
+</body>
+</html>
